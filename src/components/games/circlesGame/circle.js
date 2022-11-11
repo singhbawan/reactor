@@ -5,7 +5,7 @@ function Cirles(props) {
 
   return (
     <div style={{ left:`${xCoor}px`,
-        top: `${yCoor}px`}} className="circle"> 
+        top: `${yCoor}px`}} className="circle1"> 
     </div>
   );
 }

@@ -1,0 +1,63 @@
+.canvas {
+  text-align: center;
+  height: 100vh;
+  background-color: #B5EAEA;
+  position: relative;
+}
+
+#background {
+  position: absolute;
+  z-index: 0;
+  top: 35vh;
+  left: 25vw;
+}
+
+#bg-text {
+  color: #F38BA0;
+  font-size: 50px;
+  animation: textRotate 60s linear infinite;
+}
+
+.circle1 {
+  position: absolute;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: beige;
+  border: solid 4px black;
+  z-index: 9;
+  animation-name: circlePop;
+  animation-duration: 500ms;
+}
+
+.btn1 {
+  background-color: #FFBCBC;
+  position: relative;
+  width: 75px;
+  margin: 5px;
+  z-index: 99;
+}
+
+@keyframes circlePop {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(2);
+  }
+  50% {
+    transform: scale(0.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes textRotate {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(315deg);
+  }
+}
