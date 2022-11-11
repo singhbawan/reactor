@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/reactor/static/css/main.645430dc.css",
+    "main.js": "/reactor/static/js/main.683f5fb5.js",
+    "index.html": "/reactor/index.html",
+    "main.645430dc.css.map": "/reactor/static/css/main.645430dc.css.map",
+    "main.683f5fb5.js.map": "/reactor/static/js/main.683f5fb5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.645430dc.css",
+    "static/js/main.683f5fb5.js"
+  ]
+}
