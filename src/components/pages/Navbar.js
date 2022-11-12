@@ -7,7 +7,7 @@ import Navtabs from "./Navtabs";
 
 function Navbar() {
     
-    const pageList = ["Home", "Circles","Game2"];
+    const pageList = ["Home", "Circles","Rhymes"];
     const [currentPage, setCurrentPage] = useState("Home");
     
   const renderPage = () => {
@@ -19,7 +19,7 @@ function Navbar() {
       case "Circles":
         return <Game1 />;
         
-      case "Game2":
+      case "Rhymes":
         return <Game2 />;
         
       default:
