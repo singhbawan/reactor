@@ -67,7 +67,7 @@ function Game1() {
       </button>
       {circlesCoor.length ? null : <Backgroundtext />}
       {circlesCoor.map((position, idx) => (
-        <Circle key={idx} xCoor={position.X - 12} yCoor={position.Y - 12} />
+        <Circle key={idx} xCoor={position.X - 10} yCoor={position.Y - 50} />
       ))}
     </div>
   );

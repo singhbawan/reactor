@@ -7,7 +7,7 @@ import Navtabs from "./Navtabs";
 
 function Navbar() {
     
-    const [pageList, setPageList] = useState(["Home", "Circles","Game2"]);
+    const pageList = ["Home", "Circles","Game2"];
     const [currentPage, setCurrentPage] = useState("Home");
     
   const renderPage = () => {
