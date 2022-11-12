@@ -3,7 +3,6 @@ import { useState } from "react";
 import Circle from "./circle";
 import Backgroundtext from "./Backgroundtext";
 
-
 function Game1() {
   const [circlesCoor, setCirclesCoord] = useState([]);
   const [undoCirclesCoor, setundoCirclesCoord] = useState([]);
@@ -13,10 +12,7 @@ function Game1() {
       return;
     }
     let { pageX, pageY } = e;
-    let newCircleCoor = [...circlesCoor];
-    newCircleCoor.push({ X: pageX, Y: pageY });
-    setCirclesCoord(newCircleCoor);
-    console.log(pageX, pageY);
+    setCirclesCoord([...circlesCoor, { X: pageX, Y: pageY }]);
   }
 
   function handleUndo() {
@@ -54,12 +50,8 @@ function Game1() {
   }
 
   function handleClear() {
-    
-
     setCirclesCoord([]);
     setundoCirclesCoord([]);
-
-   
   }
 
   return (
@@ -73,7 +65,7 @@ function Game1() {
       <button onClick={handleClear} className="btn1">
         Clear
       </button>
-      {circlesCoor.length? null : <Backgroundtext />}
+      {circlesCoor.length ? null : <Backgroundtext />}
       {circlesCoor.map((position, idx) => (
         <Circle key={idx} xCoor={position.X - 12} yCoor={position.Y - 12} />
       ))}

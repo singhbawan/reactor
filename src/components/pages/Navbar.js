@@ -28,13 +28,13 @@ function Navbar() {
     }
   };
 
-  const handlePageChange1 = (page) =>{
+  const handlePageChange = (page) =>{
     setCurrentPage(page);
   }
 
   return (
     <div>
-      <Navtabs list={pageList} handlePageChange={handlePageChange1} currentPage = {currentPage}/>  
+      <Navtabs list={pageList} handlePageChange={handlePageChange} currentPage = {currentPage}/>  
       {renderPage()} 
     </div>
   );

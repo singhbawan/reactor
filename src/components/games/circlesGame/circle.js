@@ -1,12 +1,9 @@
-
-function Cirles(props) {
-
- let {xCoor,yCoor} = props;
-
+function Cirles({ xCoor, yCoor }) {
   return (
-    <div style={{ left:`${xCoor}px`,
-        top: `${yCoor}px`}} className="circle1"> 
-    </div>
+    <div
+      style={{ left: `${xCoor}px`, top: `${yCoor}px` }}
+      className="circle1"
+    ></div>
   );
 }
 
