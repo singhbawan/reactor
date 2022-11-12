@@ -2,10 +2,13 @@ import "./circles.css";
 import { useState } from "react";
 import Circle from "./circle";
 import Backgroundtext from "./Backgroundtext";
+import Modal from "../../modal";
 
 function Game1() {
   const [circlesCoor, setCirclesCoord] = useState([]);
   const [undoCirclesCoor, setundoCirclesCoord] = useState([]);
+  const [isModal, setIsModal] = useState(false);
+  let modalInfo = {title:"Circles", description:"This game demonstrate the use of useState hook along with conditional rendering"}
 
   function handleClick(e) {
     if (e.target.className !== "canvas") {
@@ -54,18 +57,28 @@ function Game1() {
     setundoCirclesCoord([]);
   }
 
+  function toggleModal() {
+   
+    isModal? setIsModal(false) : setIsModal(true);
+
+  }
+
   return (
     <div onClick={handleClick} className="canvas">
-      <button onClick={handleUndo} className="btn1">
+      <button onClick={()=>handleUndo()} className="btn1">
         Undo
       </button>
-      <button onClick={handleRedo} className="btn1">
+      <button onClick={()=>handleRedo()} className="btn1">
         Redo
       </button>
-      <button onClick={handleClear} className="btn1">
+      <button onClick={()=>handleClear()} className="btn1">
         Clear
       </button>
+      <button onClick={()=>toggleModal()} className="btn1">
+        Info
+      </button>
       {circlesCoor.length ? null : <Backgroundtext />}
+      {isModal ? <Modal toggleModal={toggleModal} modalInfo={modalInfo} /> : null}
       {circlesCoor.map((position, idx) => (
         <Circle key={idx} xCoor={position.X - 10} yCoor={position.Y - 50} />
       ))}
