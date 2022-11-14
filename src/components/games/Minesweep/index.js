@@ -5,6 +5,11 @@ import icon from "./assets/naval-mine.png";
 function Minesweep() {
   const [field, setField] = useState([[]]);
   const [resetGame, setResetGame] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
+
+  useEffect(() => {
+    setGameOver(false);
+  }, [resetGame]);
   useEffect(() => {
     let initialfield = Array(9)
       .fill(null)
@@ -24,17 +29,20 @@ function Minesweep() {
     setField(initialfield);
   }, [resetGame]);
 
+  function handleReset() {
+    setResetGame(!resetGame);
+  }
+
   function handleClick(e) {
     let id = e.target.dataset.id;
     let x = [...field];
-    
+
     x[id[0]][id[1]].isOpen = true;
     setField(x);
     if (x[id[0]][id[1]].isBomb) {
+      setGameOver(true);
       console.log("function to show all");
       console.log("show reset game button");
-      alert("Game Over");
-      setResetGame(!resetGame);
       return;
     }
 
@@ -47,23 +55,23 @@ function Minesweep() {
     let l = parseInt(id[1]);
     let x = [...field];
 
-
-for (let i = -1; i < 2; i++) {
-    for (let j = -1; j < 2; j++) {
-
-        if (k+i<0 || l+j<0 || k+i>(x.length-1)|| l+j>(x.length-1)) {
-            return;
-        }
-        
-        if (x[k+i][l+j].isBomb) {
-            x[idToCheck[0]][idToCheck[1]].bombs++;
-            setField(x);
+    for (let i = -1; i < 2; i++) {
+      for (let j = -1; j < 2; j++) {
+        if (
+          k + i < 0 ||
+          l + j < 0 ||
+          k + i > x.length - 1 ||
+          l + j > x.length - 1
+        ) {
+          return;
         }
 
+        if (x[k + i][l + j].isBomb) {
+          x[idToCheck[0]][idToCheck[1]].bombs++;
+          setField(x);
+        }
+      }
     }
-    
-}
-
 
     // if (k > 0) {
     //   k--;
@@ -82,7 +90,7 @@ for (let i = -1; i < 2; i++) {
     //   console.log("bomb found");
     //   x[idToCheck[0]][idToCheck[1]].bombs++;
     //   setField(x);
-      
+
     //   return;
     // } else {
     //   x[k][l].isOpen = true;
@@ -148,31 +156,36 @@ for (let i = -1; i < 2; i++) {
   }
 
   return (
-    <div className="App">
-      {field.map((e, idx) => {
-        return (
-          <div key={`${idx}`}>
-            {e.map((el, idxx) => {
-              return (
-                <div
-                  data-id={`${idx}${idxx}`}
-                  onClick={handleClick}
-                  className={`cover ${el.isOpen ? "open" : "close"}`}
-                  key={`${idx}${idxx}`}
-                >
-                  {el.isOpen ? (
-                    el.isBomb ? (
-                      <img alt="mine" src={icon}></img>
-                    ) : (
-                      <div>{el.bombs}</div>
-                    )
-                  ) :  null}
-                </div>
-              );
-            })}
-          </div>
-        );
-      })}
+    <div className="canvas">
+      <button className="btn1" onClick={handleReset}>
+        Reset
+      </button>
+      <div className="App">
+        {field.map((e, idx) => {
+          return (
+            <div key={`${idx}`}>
+              {e.map((el, idxx) => {
+                return (
+                  <div
+                    data-id={`${idx}${idxx}`}
+                    onClick={handleClick}
+                    className={`cover ${el.isOpen ? "open" : "close"} ${gameOver ? "gameOver" : ""}`}
+                    key={`${idx}${idxx}`}
+                  >
+                    {
+                      el.isBomb ? (
+                        <img alt="mine" src={icon}></img>
+                      ) : (
+                        <div>{el.bombs}</div>
+                      )
+                     }
+                  </div>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 }

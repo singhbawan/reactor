@@ -37,5 +37,19 @@
 }
 
 .close img {
-  width: 100%;  
+  width: 100%;
+  display: none;  
+}
+
+.close div {
+    width: 100%;
+    display: none;  
+  }
+
+.gameOver{
+    pointer-events: none;
+}
+
+.gameOver img{
+    display: block;
 }
