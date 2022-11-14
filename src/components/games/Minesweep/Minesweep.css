@@ -9,6 +9,7 @@
 }
 
 .open {
+    pointer-events: none;
   background-color: #cecece;
   border-bottom: 2px solid #b4b4b4;
   border-left: 2px solid #969696;
@@ -36,6 +37,5 @@
 }
 
 .close img {
-  width: 40px;
-  display: none;
+  width: 100%;  
 }
