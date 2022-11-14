@@ -1,0 +1,41 @@
+.cover{
+    width: 50px;
+    height: 50px;
+    margin: 2px 2px 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.open {
+  background-color: #cecece;
+  border-bottom: 2px solid #b4b4b4;
+  border-left: 2px solid #969696;
+  border-top: 2px solid #969696;
+  border-right: 2px solid #b4b4b4;
+}
+
+.close {
+  background-color: #9b9b9b;
+  border-bottom: 2px solid #7b7b7b;
+  border-left: 2px solid #ffffff;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #7b7b7b;
+}
+
+.cover:hover {
+    background-color: #cccccc;
+    color: slategray;
+    cursor: pointer;
+}
+
+.open img {
+  width: 100%;
+  background-color: #d8606085 ;
+}
+
+.close img {
+  width: 40px;
+  display: none;
+}
